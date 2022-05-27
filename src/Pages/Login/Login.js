@@ -6,10 +6,11 @@ import {
 import auth from "../../firebase.init";
 import { FcGoogle } from "react-icons/fc";
 import Loading from "../Shared/Loading";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useToken from "../../hooks/useToken.";
 
 const Login = () => {
-   
+    const navigate = useNavigate();
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -19,9 +20,10 @@ const Login = () => {
     handleSubmit,
   } = useForm();
 
-  if (user || gUser) {
-    console.log({ user });
-    console.log({ gUser });
+  const [token] = useToken(user || gUser);  
+
+  if (token) {
+    navigate('/home');
   }
   let signInErro;
   if (error || gError) {
@@ -40,14 +42,13 @@ const Login = () => {
 
   const onsubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
-
   };
   return (
     <div class="hero min-h-screen">
       <div class="hero-content flex-col lg:flex-row">
         <div class="text-center lg:text-left">
           <h1 class="text-5xl font-bold">Login now!</h1>
-          <p class="py-6 mr-14">
+          <p class="py-6 lg:mr-14">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
             a id nisi.
@@ -135,7 +136,7 @@ const Login = () => {
               <small>
                 {" "}
                 New to Elec-Trick?{" "}
-                <Link to="/signup" className="text-secondary ml-3 uppercase font-semibold">
+                <Link to="/signup" className="text-primary uppercase">
                   Create an account
                 </Link>
               </small>
