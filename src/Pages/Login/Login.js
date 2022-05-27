@@ -6,11 +6,13 @@ import {
 import auth from "../../firebase.init";
 import { FcGoogle } from "react-icons/fc";
 import Loading from "../Shared/Loading";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useToken from "../../hooks/useToken.";
+import { useEffect } from "react";
 
 const Login = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -20,11 +22,13 @@ const Login = () => {
     handleSubmit,
   } = useForm();
 
-  const [token] = useToken(user || gUser);  
-
-  if (token) {
-    navigate('/home');
-  }
+  const [token] = useToken(user || gUser);
+  let from = location.state?.from?.pathname || "/";
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [token, from, navigate]);
   let signInErro;
   if (error || gError) {
     signInErro = (
