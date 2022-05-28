@@ -172,7 +172,7 @@ const MyProfile = () => {
               )}
             </label>
           </div>
-          <input className="btn w-full max-w-xs" type="submit" value="add" />
+          <input className="btn w-full max-w-xs" type="submit" value="update" />
         </form>
       </div>
     </div>

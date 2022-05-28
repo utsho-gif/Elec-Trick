@@ -3,7 +3,7 @@ import ReactStars from "react-star-ratings";
 
 const SingleReview = ({re}) => {
     const rating = {
-        size: 10,
+        size: 5,
         value: `${re?.rating}`,
         edit: true,
         color: "primary",
@@ -16,7 +16,7 @@ const SingleReview = ({re}) => {
           <p>{re?.review}</p>
           <div>
             <p>Rating: {re?.rating}</p>
-          <ReactStars {...rating} />
+            <ReactStars {...rating} />
           </div>
         </div>
       </div>
