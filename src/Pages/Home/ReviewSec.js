@@ -11,10 +11,10 @@ const ReviewSec = () => {
     return <div className='mb-14'><Loading></Loading></div>
 }
   return (
-    <div class="hero my-12   bg-primary">
+    <div class="hero my-12 rounded  bg-primary">
       <div class="hero-content text-center">
         <div class="max-w">
-          <h1 class="text-5xl font-bold">Review</h1>
+          <h1 class="text-5xl font-bold">Reviews</h1>
           <p class="py-6">
           <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-4'>
                 {

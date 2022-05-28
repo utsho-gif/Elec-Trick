@@ -10,7 +10,7 @@ const SingleReview = ({re}) => {
         activeColor: "accent",
       };
     return (
-        <div class="card w-90 mx-auto bg-base-100 shadow-xl">
+        <div class="card w-87 mx-auto bg-base-100 shadow-xl">
         <div class="card-body">
           <h2 class="text-2xl font-bold text-center">{re?.name}</h2>
           <p>{re?.review}</p>
