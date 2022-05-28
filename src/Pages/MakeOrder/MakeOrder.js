@@ -7,9 +7,7 @@ import auth from "../../firebase.init";
 import BookingModal from "./BookingModal";
 
 const MakeOrder = () => {
-    const [user] = useAuthState(auth);
-    console.log(user);
-  
+  const [user] = useAuthState(auth);
   const { id } = useParams();
   const [item, setItem] = useState({});
   const [isReload, setIsReload] = useState(false);
@@ -22,7 +20,6 @@ const MakeOrder = () => {
   }, [id, isReload]);
 
   const { name, img, description, min_q, avail_q, price, _id } = item;
-
 
   return (
     <div class="card mt-14 lg:card-side bg-base-100 shadow-xl">
@@ -38,12 +35,11 @@ const MakeOrder = () => {
           <p>Least Quantity: {min_q}</p>
           <p>Price(per unit): {price}</p>
           <div>
-          <label for="my-modal-6" class="btn btn-success mt-6">Make Order</label>
+            <label for="my-modal-6" class="btn btn-success mt-6">
+              Make Order
+            </label>
           </div>
           <BookingModal item={item} user={user}></BookingModal>
-          <div className="mt-6">
-            
-          </div>
         </div>
       </div>
     </div>

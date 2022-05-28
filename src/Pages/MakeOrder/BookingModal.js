@@ -3,26 +3,28 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
 const BookingModal = ({ item, user }) => {
-  const {  min_q, avail_q, _id } = item;
+  
   const {
     register,
     formState: { errors },
     handleSubmit,
     reset,
   } = useForm();
+  const {  min_q, avail_q, _id, name } = item;
   const onSubmit = (data) => {
-    console.log(data);
     const orderDetail = {
       name: data.name,
       email: data.email,
       phone: data.phone,
+      productName: data.productName,
       productId: data.productId,
       quantity: data.quantity,
     }
     fetch('http://localhost:5000/order', {
         method: 'POST',
         headers: {
-            'content-type': 'application/json'
+            'content-type': 'application/json',
+            'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
         },
         body: JSON.stringify(orderDetail)
     })
@@ -42,7 +44,7 @@ const BookingModal = ({ item, user }) => {
     <div>
       <input type="checkbox" id="my-modal-6" class="modal-toggle" />
       <div class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box">
+        <div class="modal-box pl-12">
           <h3 class="font-bold text-lg">{item.name}</h3>
           <div>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -128,12 +130,34 @@ const BookingModal = ({ item, user }) => {
               </div>
               <div className="form-control w-full max-w-xs">
                 <label className="label">
+                  <span className="label-text">Product Name</span>
+                </label>
+                <input
+                  type="text"
+                  value= {name}
+                  className="input input-bordered w-full max-w-xs"
+                  {...register("productName", {
+                    required: {
+                      value: true,
+                      message: "product Name is required",
+                    },
+                  })}
+                />
+                <label className="label">
+                  {errors.productName?.type === "required" && (
+                    <span className="label-text-alt text-red-500">
+                      {errors.productName.message}
+                    </span>
+                  )}
+                </label>
+              </div>
+              <div className="form-control w-full max-w-xs">
+                <label className="label">
                   <span className="label-text">Product ID</span>
                 </label>
                 <input
                   type="text"
-                  placeholder="Product ID"
-                  value={_id}
+                  value= {_id}
                   className="input input-bordered w-full max-w-xs"
                   {...register("productId", {
                     required: {
@@ -199,8 +223,8 @@ const BookingModal = ({ item, user }) => {
             </form>
           </div>
           <div class="modal-action">
-            <label for="my-modal-6" class="btn">
-              Yay!
+            <label for="my-modal-6" class="btn btn-error">
+              Cancel
             </label>
           </div>
         </div>
