@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="my-5">
+    <div className="my-5 lg:ml-80 ml-20">
       <img
         width="200"
         height="200"
@@ -16,7 +16,7 @@ const About = () => {
         <h1>Email: future.slangsta76@gmail.com</h1>
         <h2 className="mt-7">
           Skills:{" "}
-          <ul>
+          <ul className='inline'>
             <li>ReactJS</li>
             <li>Front-End</li>
             <li>MongoDB</li>
@@ -30,6 +30,7 @@ const About = () => {
         <h2 className="mt-7">
           My Websites:{" "}
           <ul>
+            <li><a className="link text-accent" href="https://elec-trick-3dcf2.web.app/">Elec-Trick</a></li>
             <li><a className="link text-accent" href="https://hike-server.web.app/">Hike Serve</a></li>
             <li><a className="link text-accent" href="https://double-click-9f53a.web.app/">Double CLick</a></li>
           </ul>

@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Elec-Trick
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Live Link
 
-## Available Scripts
+ [Elec-Trick](https://elec-trick-3dcf2.web.app/).
 
-In the project directory, you can run:
+## Elec-Trick's Features and Fucntionalities:
 
-### `npm start`
+* It's a Manufacturer Website where electrics tools has been supplied.
+* A nevigation bar at the top where user can navigate every existing page.
+* If the page are not found then a 404 error will be appear at the front.
+* Home page contain a banner, a our specialities, products details, and our business summary and a footer.
+* Every stored product has a button where admin can update or delete product quantity.
+* There are 2ypes of roles in the website.
+* A user role wheres user can order their product and can delte their order and can make a review about product.
+* A admin role where a admin can manage the entire order, can delete order, can delete product and add product.
+* A admin can make another user admin.
+* On Add Item page admin can add new product and see it on My Item and Manage Inventory both page.
+* A private route added in the inventory page. Only the logged in user can see the page.
+* If the use isn't login he redirect to the login page for accessing the checkout page.
+* If a user is new to the website he can register with his email or google.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Technologies uses in this website:
+* React JS
+* Tailwind 
+* DaisyUI
+* Firebase
+* React Router
+* React Icon
+* React Firebase Hooks
+* React Toastify
+* MDB react ui kit
+* Framer Motion
+* AOS
+* React Upcounter
+* React VisualSensor

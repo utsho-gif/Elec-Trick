@@ -10,6 +10,7 @@
     "aos": "^2.3.4",
     "daisyui": "^2.15.1",
     "firebase": "^9.8.1",
+    "framer-motion": "^6.3.4",
     "mdb-react-ui-kit": "^3.0.0",
     "react": "^18.1.0",
     "react-countup": "^6.2.0",
