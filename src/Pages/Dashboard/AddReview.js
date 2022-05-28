@@ -27,7 +27,7 @@ const AddReview = () => {
       .then((res) => res.json())
       .then((inserted) => {
         if (inserted.insertedId) {
-          toast.success("Order place successfully");
+          toast.success("Review added successfully");
           reset();
         } else {
           toast.error("An error occured");

@@ -29,7 +29,7 @@ const MyOrder = () => {
   );
   if (isLoading) {
     return (
-      <div className="mb-14">
+      <div className="my-10">
         <Loading></Loading>
       </div>
     );
