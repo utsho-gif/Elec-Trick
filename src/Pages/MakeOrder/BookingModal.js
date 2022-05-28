@@ -20,7 +20,7 @@ const BookingModal = ({ item, user }) => {
       productId: data.productId,
       quantity: data.quantity,
     }
-    fetch('http://localhost:5000/order', {
+    fetch('https://hidden-reef-48781.herokuapp.com/order', {
         method: 'POST',
         headers: {
             'content-type': 'application/json',

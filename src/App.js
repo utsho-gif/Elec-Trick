@@ -18,6 +18,8 @@ import RequireAdmin from "./Pages/Login/RequireAdmin";
 import ManageOrder from "./Pages/Dashboard/ManageOrder";
 import AddProduct from "./Pages/Dashboard/AddProduct";
 import Allproduct from "./Pages/All Product/Allproduct";
+import Footer from "./Pages/Shared/Footer/Footer";
+import Blog from "./Pages/Blog/Blog";
 
 function App() {
   return (
@@ -71,10 +73,12 @@ function App() {
             }
           ></Route>
         </Route>
+        <Route path="/blog" element={<Blog></Blog>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
       </Routes>
+      <Footer></Footer>
       <ToastContainer />
     </div>
   );

@@ -12,7 +12,7 @@ const MakeOrder = () => {
   const [item, setItem] = useState({});
   const [isReload, setIsReload] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/purchase/${id}`)
+    fetch(`https://hidden-reef-48781.herokuapp.com/purchase/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setItem(data);
@@ -22,9 +22,9 @@ const MakeOrder = () => {
   const { name, img, description, min_q, avail_q, price, _id } = item;
 
   return (
-    <div class="card mt-14 lg:card-side bg-base-100 shadow-xl">
+    <div class=" card mt-14 lg:card-side bg-base-100 shadow-xl my-10">
       <figure>
-        <img src={img} alt="Album" />
+        <img className="w-90" src={img}  alt="Album" />
       </figure>
       <div class="card-body">
         <h2 class="card-title">{name}</h2>
@@ -33,7 +33,7 @@ const MakeOrder = () => {
           <p>{description}</p>
           <p>Available Quantity: {avail_q}</p>
           <p>Least Quantity: {min_q}</p>
-          <p>Price(per unit): {price}</p>
+          <p>Price/unit : ${price}</p>
           <div>
             <label for="my-modal-6" class="btn btn-success mt-6">
               Make Order

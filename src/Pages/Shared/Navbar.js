@@ -24,7 +24,10 @@ const Navbar = () => {
         </li>
       )}
       <li>
-        <Link to="/about">About</Link>
+        <Link to="/blog">Blogs</Link>
+      </li>
+      <li>
+        <Link to="/about">My Portfolio</Link>
       </li>
       <li>
         {user ? (

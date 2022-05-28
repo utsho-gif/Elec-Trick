@@ -55,10 +55,8 @@ const SignUp = () => {
       <div class="hero-content flex-col lg:flex-row">
         <div class="text-center lg:text-left">
           <h1 class="text-5xl font-bold">Sign Up now!</h1>
-          <p class="py-6 lg:mr-14">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+          <p class="py-6 lg:mr-14 font-semibold">
+          After sign up you'll experience the real test of this website.
           </p>
         </div>
         <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

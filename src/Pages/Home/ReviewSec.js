@@ -5,13 +5,13 @@ import SingleReview from "./SingleReview";
 
 const ReviewSec = () => {
   const { data: reviews, isLoading } = useQuery("customrev", () =>
-    fetch("http://localhost:5000/review").then((res) => res.json())
+    fetch("https://hidden-reef-48781.herokuapp.com/review").then((res) => res.json())
   );
   if(isLoading){
     return <div className='mb-14'><Loading></Loading></div>
 }
   return (
-    <div class="hero my-12 rounded  bg-primary">
+    <div class="hero my-12 rounded">
       <div class="hero-content text-center">
         <div class="max-w">
           <h1 class="text-5xl font-bold">Reviews</h1>

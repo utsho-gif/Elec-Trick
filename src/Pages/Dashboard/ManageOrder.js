@@ -7,7 +7,7 @@ const ManageOrder = () => {
   const [deleteOrder, setDeleteOrder] = useState(null);
   const [isReload, setIsReload] = useState(false);
   useEffect(() => {
-    fetch("http://localhost:5000/orders", {
+    fetch("https://hidden-reef-48781.herokuapp.com/orders", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

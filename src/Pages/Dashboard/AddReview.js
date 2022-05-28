@@ -17,7 +17,7 @@ const AddReview = () => {
       email: data.email,
       name: data.name,
     };
-    fetch(`http://localhost:5000/review`, {
+    fetch(`https://hidden-reef-48781.herokuapp.com/review`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

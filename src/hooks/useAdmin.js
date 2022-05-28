@@ -7,7 +7,7 @@ const useAdmin = (user) => {
 
   useEffect(() => {
     const email = user?.email;
-    fetch(`http://localhost:5000/admin/${email}`, {
+    fetch(`https://hidden-reef-48781.herokuapp.com/admin/${email}`, {
       method: "GET",
       headers: {
         "content-type": "application/json",
@@ -19,9 +19,8 @@ const useAdmin = (user) => {
         if (data.admin) {
           setAdmin(data.admin);
           setAdminLoading(false);
-        }
-        else{
-            setOnlyUser(!data.admin)
+        } else {
+          setOnlyUser(!data.admin);
         }
       });
   }, [user]);

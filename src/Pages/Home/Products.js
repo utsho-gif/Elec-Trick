@@ -4,16 +4,16 @@ import Loading from '../Shared/Loading';
 import Product from './Product';
 
 const Products = () => {
-    const {data: products, isLoading} = useQuery('products', () => fetch('http://localhost:5000/product').then(res => res.json()));
+    const {data: products, isLoading} = useQuery('products', () => fetch('https://hidden-reef-48781.herokuapp.com/product').then(res => res.json()));
     if(isLoading){
         return <div className='mb-14'><Loading></Loading></div>
     }
     return (
         <div>
-            <h2>Products: {products?.length}</h2>
+            <h2 className='text-2xl text-center mb-10'>Products</h2>
             <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-4'>
                 {
-                    products?.slice(0,6).reverse().map(product => <Product key={product._id} product={product}></Product>)
+                    products?.reverse().slice(0,6).map(product => <Product key={product._id} product={product}></Product>)
                 }
             </div>
         </div>

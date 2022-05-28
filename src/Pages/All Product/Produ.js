@@ -17,7 +17,7 @@ const Produ = ({ produ }) => {
         <p>{produ?.description}</p>
         <p>Least Order Quantity: {produ?.min_q}</p>
         <p>Available Quantity: {produ?.avail_q}</p>
-        <p>Price: {produ?.price}</p>
+        <p>Price/unit: ${produ?.price}</p>
         <div class="card-actions justify-center mt-6">
           <button onClick={() => handleNavigate(produ?._id)} class="btn btn-primary">
             Purchase

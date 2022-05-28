@@ -4,10 +4,10 @@ const Banner = () => {
     return (
         <div class="hero min-h-screen">
         <div class="hero-content flex-col lg:flex-row-reverse">
-          <img src="https://api.lorem.space/image/movie?w=260&h=400" class="max-w-sm rounded-lg shadow-2xl" alt=''/>
+          <img src="https://i.ibb.co/q04JG4X/2.jpg" class="max-w-sm rounded-lg shadow-2xl" alt=''/>
           <div>
-            <h1 class="text-5xl font-bold">Box Office News!</h1>
-            <p class="py-6 mr-12">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+            <h1 class="text-5xl font-bold">Elec-Trick</h1>
+            <p class="py-6 mr-12 font-semibold">ELEC-TRICK IS A TOOLS BRAND ABOUT PROVIDING TOOLS FOR EVERY HOME. DISTRIBUTING HIGH END TOOLS TO HELP CREATE YOUR IDEAL VISION FOR A PROJECT, HOME, OR APPLICATION. WE ARE YOUR PARTNERS, CONFIDANTS AND MOST IMPORTANTLY YOUR GUIDANCE TO HELP YOU COMPLETE PROJECTS THAT MATTER.</p>
             <button class="btn btn-primary">Get Started</button>
           </div>
         </div>

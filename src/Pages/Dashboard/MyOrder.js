@@ -14,7 +14,7 @@ const MyOrder = () => {
   const [user] = useAuthState(auth);
   const email = user?.email;
   const { data: orders, isLoading, refetch } = useQuery("orders", () =>
-    fetch(`http://localhost:5000/order?email=${email}`, {
+    fetch(`https://hidden-reef-48781.herokuapp.com/order?email=${email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

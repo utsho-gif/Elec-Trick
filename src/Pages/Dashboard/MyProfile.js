@@ -22,7 +22,7 @@ const MyProfile = () => {
           phone: data.phone,
           linkedin: data.linkedin  
       }
-      fetch(`http://localhost:5000/user/${email}`,{
+      fetch(`https://hidden-reef-48781.herokuapp.com/user/${email}`,{
         method:'PUT',
         headers: {
             'content-type': 'application/json'
