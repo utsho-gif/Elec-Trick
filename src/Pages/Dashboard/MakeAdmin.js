@@ -12,9 +12,6 @@ const MakeAdmin = () => {
         }
     }).then((res) => res.json())
   );
-  if(isLoading){
-    return <div className='h-screen flex justify-center items-center'><Loading></Loading></div> 
-}
   return (
     <div>
     <h2 className="text-xl text-center mb-6">Users: {users?.length}</h2>
@@ -26,12 +23,11 @@ const MakeAdmin = () => {
             <th>Name</th>
             <th>email</th>
             <th>Action</th>
-            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
           {
-              users.map((user, index)=> <UserRow key={user._id} user={user} index={index} refetch={refetch}></UserRow>)
+              users?.map((user, index)=> <UserRow key={user._id} user={user} index={index} refetch={refetch}></UserRow>)
           }
         </tbody>
       </table>

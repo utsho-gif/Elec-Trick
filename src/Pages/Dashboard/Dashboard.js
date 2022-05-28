@@ -21,7 +21,7 @@ const Dashboard = () => {
         <ul class="menu p-4 overflow-y-auto w-60 bg-white lg:bg-transparent text-base-content">
           {onlyUSer && (
             <li>
-              <Link to="/dashboard">My Orders</Link>
+              <Link to="/dashboard/myorder">My Orders</Link>
             </li>
           )}
           {onlyUSer && (
@@ -37,12 +37,11 @@ const Dashboard = () => {
               <Link to="/dashboard/admin">Make Admin</Link>
             </li>
           )}
-          <li>
-            <Link to="/dashboard/adddoctor">Add Doctor</Link>
-          </li>
-          <li>
-            <Link to="/dashboard/managedoctors">Manage Doctor</Link>
-          </li>
+          {admin && (
+            <li>
+              <Link to="/dashboard/allorder">All Orders</Link>
+            </li>
+          )}
         </ul>
       </div>
     </div>
