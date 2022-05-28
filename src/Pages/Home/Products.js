@@ -13,7 +13,7 @@ const Products = () => {
             <h2>Products: {products?.length}</h2>
             <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-4'>
                 {
-                    products?.slice(0,6).map(product => <Product key={product._id} product={product}></Product>)
+                    products?.slice(0,6).reverse().map(product => <Product key={product._id} product={product}></Product>)
                 }
             </div>
         </div>
