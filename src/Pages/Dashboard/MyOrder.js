@@ -13,7 +13,11 @@ const MyOrder = () => {
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
   const email = user?.email;
-  const { data: orders, isLoading, refetch } = useQuery("orders", () =>
+  const {
+    data: orders,
+    isLoading,
+    refetch,
+  } = useQuery("orders", () =>
     fetch(`https://hidden-reef-48781.herokuapp.com/order?email=${email}`, {
       method: "GET",
       headers: {
@@ -48,13 +52,24 @@ const MyOrder = () => {
             </tr>
           </thead>
           <tbody>
-            {
-              orders?.map((order, index) => <OrderRow key={order._id} order={order} index={index} setDeleteOrder={setDeleteOrder}></OrderRow>)
-            }
+            {orders?.map((order, index) => (
+              <OrderRow
+                key={order._id}
+                order={order}
+                index={index}
+                setDeleteOrder={setDeleteOrder}
+              ></OrderRow>
+            ))}
           </tbody>
         </table>
       </div>
-          {deleteOrder && <ConfirmModal deleteOrder={deleteOrder} setDeleteOrder={setDeleteOrder} refetch={refetch}></ConfirmModal>}   
+      {deleteOrder && (
+        <ConfirmModal
+          deleteOrder={deleteOrder}
+          setDeleteOrder={setDeleteOrder}
+          refetch={refetch}
+        ></ConfirmModal>
+      )}
     </div>
   );
 };

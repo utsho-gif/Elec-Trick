@@ -9,48 +9,47 @@ const AddProduct = () => {
     handleSubmit,
     reset,
   } = useForm();
-  const imageStorageKey = '5543b52497871853e751056fae446029';
+  const imageStorageKey = "5543b52497871853e751056fae446029";
   const onSubmit = (data) => {
-      const image = data.image[0];
-      const formData = new FormData();
-      formData.append('image', image);
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
     const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
-    fetch(url,{
-        method: 'POST',
-        body: formData
+    fetch(url, {
+      method: "POST",
+      body: formData,
     })
-    .then(res => res.json())
-    .then(result => {
-        if(result.success){
-            const img = result.data.url;
-            const product = {
-                name: data.name,
-                description: data.description,
-                min_q: data.min_q,
-                avail_q: data.avail_q,
-                price: data.price,
-                img: img
-            }
-            fetch('https://hidden-reef-48781.herokuapp.com/product', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json',
-                    'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
-                },
-                body: JSON.stringify(product)
-            })
-            .then(res => res.json())
-            .then(inserted => {
-                if(inserted.insertedId){
-                    toast.success("Product added successfully");
-                    reset();
-                }
-                else{
-                    toast.error('An error occured')
-                }
-            })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.success) {
+          const img = result.data.url;
+          const product = {
+            name: data.name,
+            description: data.description,
+            min_q: data.min_q,
+            avail_q: data.avail_q,
+            price: data.price,
+            img: img,
+          };
+          fetch("https://hidden-reef-48781.herokuapp.com/product", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+            body: JSON.stringify(product),
+          })
+            .then((res) => res.json())
+            .then((inserted) => {
+              if (inserted.insertedId) {
+                toast.success("Product added successfully");
+                reset();
+              } else {
+                toast.error("An error occured");
+              }
+            });
         }
-    })
+      });
   };
   return (
     <div className="card ml-14 my-14 p-14 bg-base-100 shadow-xl">

@@ -5,8 +5,8 @@ import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
 const MyProfile = () => {
-    const [user] = useAuthState(auth);
-    const email = user?.email;
+  const [user] = useAuthState(auth);
+  const email = user?.email;
   const {
     register,
     formState: { errors },
@@ -15,31 +15,31 @@ const MyProfile = () => {
   } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-      const user = {
-          email: data.email,
-          name: data.name,
-          location: data.location,
-          phone: data.phone,
-          linkedin: data.linkedin  
-      }
-      fetch(`https://hidden-reef-48781.herokuapp.com/user/${email}`,{
-        method:'PUT',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(user)
-      })
-      .then(res => res.json())
-      .then(inserted => {
-          console.log(inserted);
+    const user = {
+      email: data.email,
+      name: data.name,
+      location: data.location,
+      phone: data.phone,
+      linkedin: data.linkedin,
+    };
+    fetch(`https://hidden-reef-48781.herokuapp.com/user/${email}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((inserted) => {
+        console.log(inserted);
         if (inserted?.result?.modifiedCount > 0) {
-            toast.success("Updated successfully");
-            reset();
-          } else {
-            toast.error("Nothing to update");
-          }
-      })
-      reset();
+          toast.success("Updated successfully");
+          reset();
+        } else {
+          toast.error("Nothing to update");
+        }
+      });
+    reset();
   };
   return (
     <div>
@@ -53,7 +53,7 @@ const MyProfile = () => {
             <input
               type="text"
               placeholder="Your Name"
-              value= {user?.displayName}
+              value={user?.displayName}
               className="input input-bordered w-full max-w-xs"
               {...register("name", {
                 required: {
@@ -76,7 +76,7 @@ const MyProfile = () => {
             </label>
             <input
               type="email"
-              value= {user?.email}
+              value={user?.email}
               placeholder="Your Email"
               className="input input-bordered w-full max-w-xs"
               {...register("email", {

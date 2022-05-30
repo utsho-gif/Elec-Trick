@@ -24,7 +24,7 @@ const MakeOrder = () => {
   return (
     <div class=" card mt-14 lg:card-side bg-base-100 shadow-xl my-10">
       <figure>
-        <img className="w-90" src={img}  alt="Album" />
+        <img className="w-90" src={img} alt="Album" />
       </figure>
       <div class="card-body">
         <h2 class="card-title">{name}</h2>

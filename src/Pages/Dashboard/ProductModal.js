@@ -1,10 +1,10 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-const AdminModal = ({ deleteOrder, setDeleteOrder, setIsReload, isReload }) => {
+const ProductModal = ({ deleteOrder, setDeleteOrder, refetch }) => {
   const { _id } = deleteOrder;
   const handleDelete = () => {
-    fetch(`https://hidden-reef-48781.herokuapp.com/purchase/${_id}`, {
+    fetch(`https://hidden-reef-48781.herokuapp.com/product/${_id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -15,14 +15,14 @@ const AdminModal = ({ deleteOrder, setDeleteOrder, setIsReload, isReload }) => {
         console.log(data);
         if (data.deletedCount) {
           toast.success("Deleted Successfully");
-          setIsReload(!isReload);
+          refetch();
           setDeleteOrder(null);
         }
       });
   };
   return (
     <div>
-      <input type="checkbox" id="confirm-del" class="modal-toggle" />
+      <input type="checkbox" id="product-del" class="modal-toggle" />
       <div class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
           <h3 class="font-bold text-lg text-red-500">
@@ -33,7 +33,7 @@ const AdminModal = ({ deleteOrder, setDeleteOrder, setIsReload, isReload }) => {
             <button onClick={() => handleDelete(_id)} class="btn btn-error">
               Remove
             </button>
-            <label for="confirm-del" class="btn">
+            <label for="product-del" class="btn">
               Cancel
             </label>
           </div>
@@ -43,4 +43,4 @@ const AdminModal = ({ deleteOrder, setDeleteOrder, setIsReload, isReload }) => {
   );
 };
 
-export default AdminModal;
+export default ProductModal;

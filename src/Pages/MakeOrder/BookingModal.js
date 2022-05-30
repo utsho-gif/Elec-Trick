@@ -3,14 +3,13 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
 const BookingModal = ({ item, user }) => {
-  
   const {
     register,
     formState: { errors },
     handleSubmit,
     reset,
   } = useForm();
-  const {  min_q, avail_q, _id, name } = item;
+  const { min_q, avail_q, _id, name } = item;
   const onSubmit = (data) => {
     const orderDetail = {
       name: data.name,
@@ -19,25 +18,24 @@ const BookingModal = ({ item, user }) => {
       productName: data.productName,
       productId: data.productId,
       quantity: data.quantity,
-    }
-    fetch('https://hidden-reef-48781.herokuapp.com/order', {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json',
-            'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
-        },
-        body: JSON.stringify(orderDetail)
+    };
+    fetch("https://hidden-reef-48781.herokuapp.com/order", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify(orderDetail),
     })
-    .then(res => res.json())
-    .then(inserted => {
-        if(inserted.insertedId){
-            toast.success("Order place successfully");
-            reset();
+      .then((res) => res.json())
+      .then((inserted) => {
+        if (inserted.insertedId) {
+          toast.success("Order place successfully");
+          reset();
+        } else {
+          toast.error("An error occured");
         }
-        else{
-            toast.error('An error occured');
-        }
-    })
+      });
     reset();
   };
   return (
@@ -134,7 +132,7 @@ const BookingModal = ({ item, user }) => {
                 </label>
                 <input
                   type="text"
-                  value= {name}
+                  value={name}
                   className="input input-bordered w-full max-w-xs"
                   {...register("productName", {
                     required: {
@@ -157,7 +155,7 @@ const BookingModal = ({ item, user }) => {
                 </label>
                 <input
                   type="text"
-                  value= {_id}
+                  value={_id}
                   className="input input-bordered w-full max-w-xs"
                   {...register("productId", {
                     required: {

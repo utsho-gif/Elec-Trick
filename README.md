@@ -17,7 +17,7 @@
 * A admin can make another user admin.
 * On Add Item page admin can add new product and see it on My Item and Manage Inventory both page.
 * A private route added in the inventory page. Only the logged in user can see the page.
-* If the use isn't login he redirect to the login page for accessing the checkout page.
+* If the users aren't login they redirect to the login page for accessing the checkout page.
 * If a user is new to the website he can register with his email or google.
 
 ## Technologies uses in this website:

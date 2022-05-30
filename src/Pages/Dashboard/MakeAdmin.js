@@ -4,35 +4,44 @@ import Loading from "../Shared/Loading";
 import UserRow from "./UserRow";
 
 const MakeAdmin = () => {
-  const {data: users, isLoading, refetch} = useQuery("users", () =>
+  const {
+    data: users,
+    isLoading,
+    refetch,
+  } = useQuery("users", () =>
     fetch("https://hidden-reef-48781.herokuapp.com/user", {
-        method: 'GET',
-        headers: {
-            'authorization' : `Bearer ${localStorage.getItem('accessToken')}`
-        }
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
     }).then((res) => res.json())
   );
   return (
     <div>
-    <h2 className="text-xl text-center mb-6">Users: {users?.length}</h2>
-    <div class="overflow-x-auto">
-      <table class="table w-full">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Name</th>
-            <th>email</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-              users?.map((user, index)=> <UserRow key={user._id} user={user} index={index} refetch={refetch}></UserRow>)
-          }
-        </tbody>
-      </table>
+      <h2 className="text-xl text-center mb-6">Users: {users?.length}</h2>
+      <div class="overflow-x-auto">
+        <table class="table w-full">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Name</th>
+              <th>email</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users?.map((user, index) => (
+              <UserRow
+                key={user._id}
+                user={user}
+                index={index}
+                refetch={refetch}
+              ></UserRow>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
   );
 };
 

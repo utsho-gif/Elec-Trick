@@ -21,6 +21,7 @@ import Allproduct from "./Pages/All Product/Allproduct";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Blog from "./Pages/Blog/Blog";
 import NotFound from "./Pages/NotFound/NotFound";
+import ManageAllProduct from "./Pages/Dashboard/ManageAllProduct";
 
 function App() {
   return (
@@ -70,6 +71,14 @@ function App() {
             element={
               <RequireAdmin>
                 <AddProduct></AddProduct>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="managepro"
+            element={
+              <RequireAdmin>
+                <ManageAllProduct></ManageAllProduct>
               </RequireAdmin>
             }
           ></Route>

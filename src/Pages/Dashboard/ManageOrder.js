@@ -15,11 +15,14 @@ const ManageOrder = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-          setPuchases(data)});
+        setPuchases(data);
+      });
   }, [!isReload]);
   return (
     <div>
-      <h2 className="text-xl text-center mb-6">All order: {purchases?.length}</h2>
+      <h2 className="text-xl text-center mb-6">
+        All order: {purchases?.length}
+      </h2>
       <div class="overflow-x-auto">
         <table class="table w-full">
           <thead>
@@ -42,7 +45,14 @@ const ManageOrder = () => {
           </tbody>
         </table>
       </div>
-      {deleteOrder && <AdminModal deleteOrder={deleteOrder} setDeleteOrder={setDeleteOrder} setIsReload={setIsReload} isReload={isReload}></AdminModal>} 
+      {deleteOrder && (
+        <AdminModal
+          deleteOrder={deleteOrder}
+          setDeleteOrder={setDeleteOrder}
+          setIsReload={setIsReload}
+          isReload={isReload}
+        ></AdminModal>
+      )}
     </div>
   );
 };
